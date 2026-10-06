@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-  <title>Sisa Hujan di Jakarta - Novel Interaktif</title>
+  <title>Malam di Balik Tirai Velvet - Novel Interaktif Dewasa</title>
   <style>
     * {
       box-sizing: border-box;
@@ -13,8 +13,8 @@
 
     body {
       font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
-      background-color: #121212;
-      color: #e0e0e0;
+      background-color: #0b0709;
+      color: #eae1e3;
       display: flex;
       justify-content: center;
       align-items: center;
@@ -25,69 +25,100 @@
     .app-card {
       width: 100%;
       max-width: 420px;
-      background: #1e1e1e;
-      border-radius: 16px;
-      padding: 24px 20px;
-      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.5);
+      background: #180f13;
+      border-radius: 18px;
+      padding: 22px 18px;
+      box-shadow: 0 10px 30px rgba(217, 56, 86, 0.15);
       display: flex;
       flex-direction: column;
       justify-content: space-between;
-      min-height: 88vh;
-      border: 1px solid #2d2d2d;
+      min-height: 90vh;
+      border: 1px solid #361720;
     }
 
     .header {
-      border-bottom: 1px solid #333333;
-      padding-bottom: 14px;
-      margin-bottom: 20px;
+      border-bottom: 1px solid #3a1c25;
+      padding-bottom: 12px;
+      margin-bottom: 16px;
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
     }
 
     .title {
-      font-size: 1.05rem;
+      font-size: 1rem;
       font-weight: 700;
-      color: #e5a970;
-      letter-spacing: -0.2px;
+      color: #e58b9e;
+      letter-spacing: 0.5px;
       text-transform: uppercase;
+    }
+
+    .mood-badge {
+      align-self: flex-start;
+      font-size: 0.78rem;
+      padding: 4px 10px;
+      border-radius: 12px;
+      font-weight: 600;
+      display: inline-block;
+    }
+
+    .mood-neutral {
+      background-color: #2a2025;
+      color: #d1c2a5;
+      border: 1px solid #4a3842;
+    }
+
+    .mood-positive {
+      background-color: #3b111a;
+      color: #ff85a1;
+      border: 1px solid #701c30;
+    }
+
+    .mood-negative {
+      background-color: #1a1721;
+      color: #a0a5b5;
+      border: 1px solid #383c4d;
     }
 
     .story-body {
       flex-grow: 1;
       font-size: 0.98rem;
-      line-height: 1.7;
-      color: #cccccc;
+      line-height: 1.75;
+      color: #dcd0d4;
       white-space: pre-line;
       overflow-wrap: break-word;
       word-break: break-word;
-      margin-bottom: 24px;
+      margin-bottom: 20px;
     }
 
     .choices-container {
       display: flex;
       flex-direction: column;
-      gap: 10px;
+      gap: 12px;
     }
 
     .btn-choice {
-      background-color: #282828;
-      border: 1px solid #3d3d3d;
-      color: #e0e0e0;
+      background-color: #24141a;
+      border: 1px solid #4d2330;
+      color: #f3e6e8;
       padding: 14px 16px;
-      border-radius: 10px;
+      border-radius: 12px;
       font-size: 0.92rem;
       font-weight: 500;
       text-align: left;
       cursor: pointer;
       line-height: 1.45;
-      transition: background-color 0.2s, border-color 0.2s;
+      transition: all 0.2s ease;
       overflow-wrap: break-word;
       word-break: break-word;
       width: 100%;
     }
 
     .btn-choice:active {
-      background-color: #383838;
-      border-color: #e5a970;
+      background-color: #5c182a;
+      border-color: #e58b9e;
       color: #ffffff;
+      transform: scale(0.98);
     }
   </style>
 </head>
@@ -95,7 +126,8 @@
 
   <div class="app-card">
     <div class="header">
-      <div class="title" id="chapter-title">Bab 1: Tamu di Tengah Malam</div>
+      <div class="title" id="chapter-title">Bab 1: Kepulangan di Tengah Malam</div>
+      <div id="mood-indicator" class="mood-badge mood-neutral">Status Reza: Menanti</div>
     </div>
     
     <div class="story-body" id="story-text">
@@ -110,108 +142,125 @@
   <script>
     const storyData = {
       start: {
-        title: "Bab 1: Tamu di Tengah Malam",
-        text: "Jam menunjukkan pukul 23.45. Hujan deras mengguyur balkon apartemenmu di Jakarta Selatan. Ketika kamu baru saja menuang segelas wine merah, bel pintumu berbunyi.\n\nDi balik pintu berdiri Adrian—pria yang pernah berbagi tempat tinggal bersamamu selama dua tahun sebelum hubungan kalian hancur akibat tekanan karir dan ego masing-masing empat tahun lalu. Pakaiannya setengah basah, matanya menyorot kelelahan yang dalam.\n\n'Aku baru dari bandara,' suara Adrian berat. 'Aku cuma butuh tempat bicara sebentar sebelum terbang ke Singapura besok pagi.'",
+        title: "Bab 1: Kepulangan di Tengah Malam",
+        mood: "neutral",
+        moodText: "Status Reza: Menanti responmu",
+        text: "Hujan gerimis membasahi kaca penthouse tempat kalian tinggal bersama. Lampu kamar sengaja kamu redupkan, hanya menyisakan pendar hangat dari lampu tidur.\n\nPintu suite terbuka pelan. Reza—kekasihmu—melangkah masuk. Pria bertubuh jangkung dengan dada bidang itu melepas dasi dan dua kancing teratas kemejanya. Tatapan matanya tajam, sarat akan gairah dan kerinduan setelah tiga minggu bertugas di luar negeri.\n\nIa mendekatimu yang sedang bersandar di tepi tempat tidur berbalut lingerie sutra tipis. Nafasnya hangat saat menunduk menyapu ceruk lehermu.\n\n'Aku merindukanmu sampai rasanya mau gila,' bisiknya rendah dan serak, menyatukan jemarinya di pinggangmu.",
         choices: [
-          { text: "Buka pintu lebar-lebar dan ajak dia masuk", nextScene: "masukApartemen" },
-          { text: "Bicara di ambang pintu tanpa mengizinkannya masuk", nextScene: "bicaraDiPintu" }
+          { text: "Rengkuh lehernya, tarik dia mendekat dan bisikkan godaan mesra", nextScene: "sambutMesra" },
+          { text: "Dorong dadanya pelan lalu minta dia mandi dulu karena badannya terasa dingin", nextScene: "tolakDingin" }
         ]
       },
-      masukApartemen: {
-        title: "Bab 2: Aromatik Kenangan",
-        text: "Adrian melepas jaketnya yang basah dan meletakkannya di kursi. Ia memandangi sekeliling ruang tamu—tata letak tempat ini masih persis seperti saat kalian masih bersama.\n\nIa duduk di sofa, memijat pangkal hidungnya. 'Aku ditawari posisi Director untuk kawasan Asia Pasifik. Kontrak lima tahun.' Ia menatapmu lekat. 'Tapi begitu sampai di Jakarta, orang pertama yang ingin kulihat cuma kamu.'",
+
+      /* --- ALUR POSITIF 1 --- */
+      sambutMesra: {
+        title: "Bab 2: Bisikan Gairah",
+        mood: "positive",
+        moodText: "Status Reza: Sangat Berhasrat & Bahagia",
+        text: "Mata Reza menggelap seketika, berbinar penuh kepuasan. Bisikan gairahmu membakar habis sisa kelelahan dari perjalanan jauhnya.\n\nTanpa membuang waktu, tangan kekarnya merengkuh pinggangmu lebih erat, menarik tubuhmu rapat menempel pada dadanya yang keras. Bibirnya menyapu bibirmu dengan ciuman yang dalam, penuh penekanan dan rasa lapar yang tak tertahankan.\n\nJemarinya perlahan menyusup ke balik sutra tipis di punggungmu, mengirimkan sengatan panas ke seluruh sarafmu.\n\n'Kamu tahu persis cara membuatku bertekuk lutut, sayang,' bisiknya di antara hembusan nafasnya yang memburu.",
         choices: [
-          { text: "'Selamat atas posisi baru itu. Tapi kenapa harus datang malam ini?'", nextScene: "konfrontasiTujuan" },
-          { text: "Tuangkan gelas wine untuknya dan duduk di sampingnya", nextScene: "suasanaHangat" }
+          { text: "Lilitkan kakimu di pinggangnya dan biarkan dia membawamu ke atas tempat tidur", nextScene: "puncakGairah" },
+          { text: "Hentikan ciumannya sebentar dan tanyakan apakah dia membawakan hadiah untukmu", nextScene: "gangguMomen" }
         ]
       },
-      bicaraDiPintu: {
-        title: "Bab 2: Batasan yang Tegas",
-        text: "Kamu menyandarkan tubuh di bingkai pintu, menyilangkan tangan di dada. Kamu tidak ingin lagi terseret ke dalam pusaran emosi masa lalu yang butuh bertahun-tahun untuk kamu sembuhkan.\n\n'Aku menghargai usahamu datang, Adrian. Tapi kita bukan lagi orang yang sama seperti dulu,' ucapmu tenang.\n\nAdrian tersenyum pahit. 'Aku tahu. Tapi ada penyesalan yang belum pernah kuselesaikan secara dewasa denganku sendiri.'",
+
+      /* --- ALUR NEGATIF 1 --- */
+      tolakDingin: {
+        title: "Bab 2: Pembekuan Suasana",
+        mood: "negative",
+        moodText: "Status Reza: Kecewa & Terluka",
+        text: "Reza terdiam kaku. Gerakan tangannya di pinggangmu terhenti seketika.\n\nIa menarik tubuhnya mundur setengah langkah. Matanya yang tadinya membara penuh rasa rindu kini meredup, menyisakan tatapan dingin dan kekecewaan yang dalam. Keheningan yang canggung memenuhi kamar tidur.\n\nIa menghela napas panjang, lalu tersenyum tipis yang terasa pahit. 'Maaf. Aku lupa kalau kamu tidak suka diganggu saat baru pulang,' katanya singkat dengan suara datar. Ia berbalik mengambil handuk dan melangkah menuju kamar mandi tanpa menatapmu lagi.",
         choices: [
-          { text: "Luluhkan batasanmu dan izinkan dia masuk", nextScene: "masukApartemen" },
-          { text: "Tetap bertahan pada batasanmu dan minta dia pergi", nextScene: "penutupanTegas" }
+          { text: "Susul dia ke kamar mandi, peluk dari belakang dan minta maaf dengan manja", nextScene: "mintaMaafGoda" },
+          { text: "Biarkan saja dia pergi, lalu merebahkan diri dan mainkan ponselmu", nextScene: "cuekMendalam" }
         ]
       },
-      konfrontasiTujuan: {
-        title: "Bab 3: Realita dan Masa Lalu",
-        text: "Adrian menghela napas panjang. 'Karena empat tahun lalu kita berpisah secara pengecut. Kita sibuk menyalahkan jadwal kerja dan tidak pernah jujur kalau kita berdua cuma takut saling mengecewakan.'\n\nIa mendekat, jarak di antara kalian menipis. 'Aku tidak ingin pergi ke Singapura membawa rasa bersalah yang sama, Maya.'",
+
+      /* --- ALUR POSITIF 2 (PUNCAK) --- */
+      puncakGairah: {
+        title: "Bab 3: Gelombang Hangat",
+        mood: "positive",
+        moodText: "Status Reza: Makin Sayang & Penuh Cinta",
+        text: "Dinding kamar menjadi saksi bisu betapa membara malam kalian. Sentuhan demi sentuhan, bisikan lembut yang berganti menjadi desahan tertahan, menyatu dalam irama gairah yang dewasa dan intens.\n\nReza menatap langsung ke dalam matamu saat memanjakanmu, memastikan setiap sentuhannya membawamu ke puncak kenikmatan. Keringat tipis melapisi kulit kalian berdua.\n\nSaat semua gelombang gairah reda, Reza memelukmu erat dalam dekapan dadanya, mengelus rambutmu lembut dan mengecup keningmu berulang kali.\n\n'Aku tidak pernah menginginkan wanita lain seumur hidupku selain kamu,' bisiknya tulus.",
         choices: [
-          { text: "Akui bahwa kamu juga masih menyimpan perasaan untuknya", nextScene: "kejujuranEmosional" },
-          { text: "Ingatkan dia bahwa hidup sudah berjalan dan kalian punya prioritas beda", nextScene: "penerimaanPahit" }
+          { text: "Bisikkan bahwa kamu ingin menghabiskan sisa hidupmu bersamanya", nextScene: "happyEnding" },
+          { text: "Tertawa pelan lalu menyuruhnya tidur karena esok hari sudah pagi", nextScene: "endingBiasa" }
         ]
       },
-      suasanaHangat: {
-        title: "Bab 3: Di Antara Jarak yang Menipis",
-        text: "Adrian menerima gelas itu, jemarinya sengaja menyentuh jarimu perlahan. Keheningan di antara kalian terasa sarat dengan ketegangan yang sudah lama terpendam.\n\n'Kamu makin dewasa, Maya. Dan aku masih pria yang sama yang menyesali keputusanku melepaskanmu dulu,' bisiknya pelan.",
+
+      /* --- ALUR NEGATIF KE POSITIF (RECOVERY) --- */
+      mintaMaafGoda: {
+        title: "Bab 3: Pencairan Es",
+        mood: "positive",
+        moodText: "Status Reza: Luluh & Terbakar Kembali",
+        text: "Kamu melangkah masuk ke dalam kamar mandi di bawah gemericik shower hangat. Kamu memeluk tubuh Reza dari belakang, menyandarkan pipimu pada punggungnya yang basah.\n\n'Maafkan aku... aku cuma ingin kamu segar dulu, tapi aku salah,' bisikmu lembut sambil menggerakkan jemarimu di dadanya.\n\nTubuh Reza yang tadinya tegang perlahan rileks. Ia memutar tubuhnya, menatap matamu yang penuh penyesalan. Senyum hangatnya kembali terpancar.\n\n'Jangan pernah menolakku seperti itu lagi,' bisiknya serak sebelum mengangkat tubuhmu di bawah guyuran air hangat.",
         choices: [
-          { text: "Biar emosi mengalir dan biarkan malam ini milik kalian berdua", nextScene: "malamMilikBersama" },
-          { text: "Tarik diri perlahan dan alihkan pembicaraan ke hal rasional", nextScene: "konfrontasiTujuan" }
+          { text: "Pasrahkan dirimu dalam buaian mesranya", nextScene: "puncakGairah" }
         ]
       },
-      kejujuranEmosional: {
-        title: "Bab 4: Titik Balik",
-        text: "Matamu memanas. 'Kamu pikir mudah buatku membereskan semua kenangan tentangmu di rumah ini? Aku butuh bertahun-tahun untuk berhenti mencari keberadaanmu setiap kali aku bangun tidur.'\n\nAdrian menggenggam kedua tanganmu erat. 'Ikutlah denganku ke Singapura. Kita bangun semuanya dari awal. Tanpa ego, tanpa ketakutan masa lalu.'",
+
+      /* --- ALUR GANGGU MOMEN (SENSITIF) --- */
+      gangguMomen: {
+        title: "Bab 3: Kehilangan Selera",
+        mood: "negative",
+        moodText: "Status Reza: Marah & Tersinggung",
+        text: "Reza mendadak melepaskan cengkeramannya dari bahumu. Tatapannya berubah tajam dan tersinggung.\n\n'Jadi yang ada di pikiranmu saat aku merindukanmu setengah mati cuma oleh-oleh?' suaranya memotong keheningan malam.\n\nIa melangkah menjauh menuju meja kerja, melempar dompet dan jam tangannya kasar. 'Aku terbang belasan jam bukan untuk dijadikan mesin hadiah,.'",
         choices: [
-          { text: "Terima tawaran itu dan berani mengambil risiko dengannya", nextScene: "endingSingapura" },
-          { text: "Tolak tawarannya dan minta dia menetap jika benar-benar serius", nextScene: "pilihanUjiKomitmen" }
+          { text: "Berdiri, hampiri dia dan berikan ciuman panas tanpa banyak bicara", nextScene: "mintaMaafGoda" },
+          { text: "Bela diri dan balik memarahinya karena terlalu sensitif", nextScene: "bertengkarHebat" }
         ]
       },
-      penerimaanPahit: {
-        title: "Bab 4: Keikhlasan Dewasa",
-        text: "Kamu menatapnya lurus. 'Kita sudah berdamai dengan luka itu, Adrian. Sukses dengan karirmu di Singapura. Aku bangga padamu, tapi hidupku ada di sini sekarang.'\n\nAdrian menatapmu lama, mencari celah keraguan di matamu, namun yang ia temukan hanyalah ketenangan.",
+
+      /* --- ALUR CUEK (SANGAT NEGATIF) --- */
+      cuekMendalam: {
+        title: "Bab 3: Keheningan Pahit",
+        mood: "negative",
+        moodText: "Status Reza: Diam & Dingin",
+        text: "Setengah jam berlalu. Reza keluar dari kamar mandi dengan pakaian santai. Ia tidak mengucapkan sepatah kata pun.\n\nIa berjalan ke sisi tempat tidur yang lain, memunggungi tubuhmu, lalu mematikan lampu kamar total. Tidak ada pelukan hangat, tidak ada kecupan selamat malam seperti biasanya.\n\nHanya ada jarak tak kasat mata yang lebar dan dingin di antara kalian berdua.",
         choices: [
-          { text: "Peluk dia untuk terakhir kalinya sebagai bentuk perpisahan manis", nextScene: "endingPerpisahanDamai" }
+          { text: "Geser tubuhmu mendekatinya, memeluk punggungnya erat dari belakang", nextScene: "mintaMaafGoda" },
+          { text: "Tetap membelakanginya dan memilih tidur dengan perasaan kesal", nextScene: "badEnding" }
         ]
       },
-      malamMilikBersama: {
-        title: "Bab 4: Gelombang Rindu",
-        text: "Semua pertahanan yang kamu bangun bertahun-tahun runtuh malam ini. Sentuhan dan kehangatannya menghapus semua jarak waktu.\n\nSaat fajar mulai menyingsing di balik jendela apartemen, Adrian menatapmu dari tempat tidur. 'Penerbanganku jam 8 pagi. Apa keputusan kita sekarang?'",
+
+      /* --- ENDINGS --- */
+      happyEnding: {
+        title: "Akhir Cerita: Jiwa yang Menyatu",
+        mood: "positive",
+        moodText: "Status Reza: Sangat Mencintaimu Selamanya",
+        text: "Reza tersenyum tampan, menatapmu dengan binar mata paling hangat yang pernah kamu lihat. Ia mengecup bibirmu lembut.\n\nMalam ini bukan hanya tentang kehangatan fisik yang membara, tetapi tentang dua hati dewasa yang saling mengerti, saling memuaskan, dan saling mengikat janji cinta tanpa ragu.",
         choices: [
-          { text: "Minta dia membatalkan penerbangan dan memprioritaskanmu", nextScene: "pilihanUjiKomitmen" },
-          { text: "Biarkan dia pergi dan jalani hubungan jarak jauh secara matang", nextScene: "endingLDR" }
+          { text: "Mainkan Ulang Novel", nextScene: "start" }
         ]
       },
-      pilihanUjiKomitmen: {
-        title: "Bab 5: Pengorbanan",
-        text: "Adrian mengambil ponselnya tanpa ragu. Di depan matanya sendiri, ia menghubungi sekretarisnya dan membatalkan kepindahannya ke Singapura, memilih menerima posisi yang lebih rendah namun tetap bertahan di Jakarta.\n\n'Aku sudah pernah kehilanganmu demi karir sekali. Aku tidak akan mengulang kesalahan yang sama dua kali.'",
+
+      endingBiasa: {
+        title: "Akhir Cerita: Malam yang Hangat",
+        mood: "neutral",
+        moodText: "Status Reza: Puas & Nyaman",
+        text: "Reza terkekeih pelan, lalu menarik selimut menutupi tubuh kalian berdua. Ia memelukmu erat dari samping, membiarkan detak jantungnya menjadi nada pengantar tidurmu malam ini.",
         choices: [
-          { text: "Lanjutkan Cerita", nextScene: "endingBertahanDiJakarta" }
+          { text: "Mainkan Ulang Novel", nextScene: "start" }
         ]
       },
-      penutupanTegas: {
-        title: "Akhir Cerita: Memilih Diri Sendiri",
-        text: "Adrian mengangguk paham. Tanpa banyak bicara lagi, ia berbalik dan melangkah pergi menyusuri lorong sepi. Kamu menutup pintu, menguncinya, dan menghela napas lega.\n\nKamu sadar bahwa mencintai diri sendiri terkadang berarti tidak membiarkan masa lalu merusak ketenangan masa kini.",
+
+      bertengkarHebat: {
+        title: "Akhir Cerita: Luka Ego",
+        mood: "negative",
+        moodText: "Status Reza: Marah Besar",
+        text: "Pertengkaran meledak di tengah malam. Ego dan emosi membuat malam yang seharusnya penuh kehangatan berubah menjadi medan pertempuran ucapan pedas.\n\nReza mengambil kunci mobilnya dan keluar dari penthouse, membiarkanmu sendirian dalam penyesalan.",
         choices: [
-          { text: "Mainkan Ulang dari Awal", nextScene: "start" }
+          { text: "Coba Lagi dari Awal", nextScene: "start" }
         ]
       },
-      endingSingapura: {
-        title: "Akhir Cerita: Petualangan Baru",
-        text: "Satu bulan kemudian, kamu berdiri di balkon apartemen baru kalian yang menghadap Marina Bay. Keputusan ini berisiko, namun kalian berdua telah belajar bahwa hubungan dewasa membutuhkan keberanian untuk melangkah bersama ke ketidakpastian.",
+
+      badEnding: {
+        title: "Akhir Cerita: Hubungan yang Hambar",
+        mood: "negative",
+        moodText: "Status Reza: Tembok Pertahanan Keras",
+        text: "Keheningan malam itu membeku hingga pagi datang. Respon dinginmu yang berulang membuat gairah dan rasa cinta Reza perlahan terkikis, menyisakan hubungan yang hambar dan penuh jarak.",
         choices: [
-          { text: "Mainkan Ulang dari Awal", nextScene: "start" }
-        ]
-      },
-      endingPerpisahanDamai: {
-        title: "Akhir Cerita: Kedewasaan Sejati",
-        text: "Kalian berpelukan erat di pintu keluar. Tidak ada tangisan histeris, hanya penutupan sebuah bab kehidupan yang sempurna. Adrian pergi menuju bandara, dan kamu kembali ke dalam rumahmu dengan hati yang benar-benar lapang.",
-        choices: [
-          { text: "Mainkan Ulang dari Awal", nextScene: "start" }
-        ]
-      },
-      endingLDR: {
-        title: "Akhir Cerita: Kepercayaan Tanpa Batas",
-        text: "Adrian berangkat ke Singapura pagi itu. Hubungan kalian kini berlandaskan komunikasi yang sehat dan rasa percaya. Kalian bukan lagi dua anak muda yang rapuh, melainkan dua orang dewasa yang saling mendukung impian masing-masing.",
-        choices: [
-          { text: "Mainkan Ulang dari Awal", nextScene: "start" }
-        ]
-      },
-      endingBertahanDiJakarta: {
-        title: "Akhir Cerita: Rumah yang Sesungguhnya",
-        text: "Matahari pagi menyinari ruang tamu. Adrian melepaskan ambisi besarnya demi sesuatu yang lebih berharga: kamu. Kalian siap membangun fondasi hubungan yang baru, lebih bijaksana dan lebih kuat dari sebelumnya.",
-        choices: [
-          { text: "Mainkan Ulang dari Awal", nextScene: "start" }
+          { text: "Coba Lagi dari Awal", nextScene: "start" }
         ]
       }
     };
@@ -223,6 +272,15 @@
       document.getElementById('chapter-title').innerText = scene.title;
       document.getElementById('story-text').innerText = scene.text;
 
+      // Update Indikator Emosi
+      const moodIndicator = document.getElementById('mood-indicator');
+      moodIndicator.innerText = scene.moodText;
+      moodIndicator.className = 'mood-badge ' + (
+        scene.mood === 'positive' ? 'mood-positive' :
+        scene.mood === 'negative' ? 'mood-negative' : 'mood-neutral'
+      );
+
+      // Render Pilihan
       const choicesBox = document.getElementById('choices-box');
       choicesBox.innerHTML = '';
 
