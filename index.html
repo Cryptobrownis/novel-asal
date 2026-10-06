@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <title>Sisa Hujan di Jakarta - Novel Interaktif</title>
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+      background-color: #121212;
+      color: #e0e0e0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+      padding: 12px;
+    }
+
+    .app-card {
+      width: 100%;
+      max-width: 420px;
+      background: #1e1e1e;
+      border-radius: 16px;
+      padding: 24px 20px;
+      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.5);
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      min-height: 88vh;
+      border: 1px solid #2d2d2d;
+    }
+
+    .header {
+      border-bottom: 1px solid #333333;
+      padding-bottom: 14px;
+      margin-bottom: 20px;
+    }
+
+    .title {
+      font-size: 1.05rem;
+      font-weight: 700;
+      color: #e5a970;
+      letter-spacing: -0.2px;
+      text-transform: uppercase;
+    }
+
+    .story-body {
+      flex-grow: 1;
+      font-size: 0.98rem;
+      line-height: 1.7;
+      color: #cccccc;
+      white-space: pre-line;
+      overflow-wrap: break-word;
+      word-break: break-word;
+      margin-bottom: 24px;
+    }
+
+    .choices-container {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+
+    .btn-choice {
+      background-color: #282828;
+      border: 1px solid #3d3d3d;
+      color: #e0e0e0;
+      padding: 14px 16px;
+      border-radius: 10px;
+      font-size: 0.92rem;
+      font-weight: 500;
+      text-align: left;
+      cursor: pointer;
+      line-height: 1.45;
+      transition: background-color 0.2s, border-color 0.2s;
+      overflow-wrap: break-word;
+      word-break: break-word;
+      width: 100%;
+    }
+
+    .btn-choice:active {
+      background-color: #383838;
+      border-color: #e5a970;
+      color: #ffffff;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="app-card">
+    <div class="header">
+      <div class="title" id="chapter-title">Bab 1: Tamu di Tengah Malam</div>
+    </div>
+    
+    <div class="story-body" id="story-text">
+      <!-- Teks cerita -->
+    </div>
+
+    <div class="choices-container" id="choices-box">
+      <!-- Pilihan alur -->
+    </div>
+  </div>
+
+  <script>
+    const storyData = {
+      start: {
+        title: "Bab 1: Tamu di Tengah Malam",
+        text: "Jam menunjukkan pukul 23.45. Hujan deras mengguyur balkon apartemenmu di Jakarta Selatan. Ketika kamu baru saja menuang segelas wine merah, bel pintumu berbunyi.\n\nDi balik pintu berdiri Adrian—pria yang pernah berbagi tempat tinggal bersamamu selama dua tahun sebelum hubungan kalian hancur akibat tekanan karir dan ego masing-masing empat tahun lalu. Pakaiannya setengah basah, matanya menyorot kelelahan yang dalam.\n\n'Aku baru dari bandara,' suara Adrian berat. 'Aku cuma butuh tempat bicara sebentar sebelum terbang ke Singapura besok pagi.'",
+        choices: [
+          { text: "Buka pintu lebar-lebar dan ajak dia masuk", nextScene: "masukApartemen" },
+          { text: "Bicara di ambang pintu tanpa mengizinkannya masuk", nextScene: "bicaraDiPintu" }
+        ]
+      },
+      masukApartemen: {
+        title: "Bab 2: Aromatik Kenangan",
+        text: "Adrian melepas jaketnya yang basah dan meletakkannya di kursi. Ia memandangi sekeliling ruang tamu—tata letak tempat ini masih persis seperti saat kalian masih bersama.\n\nIa duduk di sofa, memijat pangkal hidungnya. 'Aku ditawari posisi Director untuk kawasan Asia Pasifik. Kontrak lima tahun.' Ia menatapmu lekat. 'Tapi begitu sampai di Jakarta, orang pertama yang ingin kulihat cuma kamu.'",
+        choices: [
+          { text: "'Selamat atas posisi baru itu. Tapi kenapa harus datang malam ini?'", nextScene: "konfrontasiTujuan" },
+          { text: "Tuangkan gelas wine untuknya dan duduk di sampingnya", nextScene: "suasanaHangat" }
+        ]
+      },
+      bicaraDiPintu: {
+        title: "Bab 2: Batasan yang Tegas",
+        text: "Kamu menyandarkan tubuh di bingkai pintu, menyilangkan tangan di dada. Kamu tidak ingin lagi terseret ke dalam pusaran emosi masa lalu yang butuh bertahun-tahun untuk kamu sembuhkan.\n\n'Aku menghargai usahamu datang, Adrian. Tapi kita bukan lagi orang yang sama seperti dulu,' ucapmu tenang.\n\nAdrian tersenyum pahit. 'Aku tahu. Tapi ada penyesalan yang belum pernah kuselesaikan secara dewasa denganku sendiri.'",
+        choices: [
+          { text: "Luluhkan batasanmu dan izinkan dia masuk", nextScene: "masukApartemen" },
+          { text: "Tetap bertahan pada batasanmu dan minta dia pergi", nextScene: "penutupanTegas" }
+        ]
+      },
+      konfrontasiTujuan: {
+        title: "Bab 3: Realita dan Masa Lalu",
+        text: "Adrian menghela napas panjang. 'Karena empat tahun lalu kita berpisah secara pengecut. Kita sibuk menyalahkan jadwal kerja dan tidak pernah jujur kalau kita berdua cuma takut saling mengecewakan.'\n\nIa mendekat, jarak di antara kalian menipis. 'Aku tidak ingin pergi ke Singapura membawa rasa bersalah yang sama, Maya.'",
+        choices: [
+          { text: "Akui bahwa kamu juga masih menyimpan perasaan untuknya", nextScene: "kejujuranEmosional" },
+          { text: "Ingatkan dia bahwa hidup sudah berjalan dan kalian punya prioritas beda", nextScene: "penerimaanPahit" }
+        ]
+      },
+      suasanaHangat: {
+        title: "Bab 3: Di Antara Jarak yang Menipis",
+        text: "Adrian menerima gelas itu, jemarinya sengaja menyentuh jarimu perlahan. Keheningan di antara kalian terasa sarat dengan ketegangan yang sudah lama terpendam.\n\n'Kamu makin dewasa, Maya. Dan aku masih pria yang sama yang menyesali keputusanku melepaskanmu dulu,' bisiknya pelan.",
+        choices: [
+          { text: "Biar emosi mengalir dan biarkan malam ini milik kalian berdua", nextScene: "malamMilikBersama" },
+          { text: "Tarik diri perlahan dan alihkan pembicaraan ke hal rasional", nextScene: "konfrontasiTujuan" }
+        ]
+      },
+      kejujuranEmosional: {
+        title: "Bab 4: Titik Balik",
+        text: "Matamu memanas. 'Kamu pikir mudah buatku membereskan semua kenangan tentangmu di rumah ini? Aku butuh bertahun-tahun untuk berhenti mencari keberadaanmu setiap kali aku bangun tidur.'\n\nAdrian menggenggam kedua tanganmu erat. 'Ikutlah denganku ke Singapura. Kita bangun semuanya dari awal. Tanpa ego, tanpa ketakutan masa lalu.'",
+        choices: [
+          { text: "Terima tawaran itu dan berani mengambil risiko dengannya", nextScene: "endingSingapura" },
+          { text: "Tolak tawarannya dan minta dia menetap jika benar-benar serius", nextScene: "pilihanUjiKomitmen" }
+        ]
+      },
+      penerimaanPahit: {
+        title: "Bab 4: Keikhlasan Dewasa",
+        text: "Kamu menatapnya lurus. 'Kita sudah berdamai dengan luka itu, Adrian. Sukses dengan karirmu di Singapura. Aku bangga padamu, tapi hidupku ada di sini sekarang.'\n\nAdrian menatapmu lama, mencari celah keraguan di matamu, namun yang ia temukan hanyalah ketenangan.",
+        choices: [
+          { text: "Peluk dia untuk terakhir kalinya sebagai bentuk perpisahan manis", nextScene: "endingPerpisahanDamai" }
+        ]
+      },
+      malamMilikBersama: {
+        title: "Bab 4: Gelombang Rindu",
+        text: "Semua pertahanan yang kamu bangun bertahun-tahun runtuh malam ini. Sentuhan dan kehangatannya menghapus semua jarak waktu.\n\nSaat fajar mulai menyingsing di balik jendela apartemen, Adrian menatapmu dari tempat tidur. 'Penerbanganku jam 8 pagi. Apa keputusan kita sekarang?'",
+        choices: [
+          { text: "Minta dia membatalkan penerbangan dan memprioritaskanmu", nextScene: "pilihanUjiKomitmen" },
+          { text: "Biarkan dia pergi dan jalani hubungan jarak jauh secara matang", nextScene: "endingLDR" }
+        ]
+      },
+      pilihanUjiKomitmen: {
+        title: "Bab 5: Pengorbanan",
+        text: "Adrian mengambil ponselnya tanpa ragu. Di depan matanya sendiri, ia menghubungi sekretarisnya dan membatalkan kepindahannya ke Singapura, memilih menerima posisi yang lebih rendah namun tetap bertahan di Jakarta.\n\n'Aku sudah pernah kehilanganmu demi karir sekali. Aku tidak akan mengulang kesalahan yang sama dua kali.'",
+        choices: [
+          { text: "Lanjutkan Cerita", nextScene: "endingBertahanDiJakarta" }
+        ]
+      },
+      penutupanTegas: {
+        title: "Akhir Cerita: Memilih Diri Sendiri",
+        text: "Adrian mengangguk paham. Tanpa banyak bicara lagi, ia berbalik dan melangkah pergi menyusuri lorong sepi. Kamu menutup pintu, menguncinya, dan menghela napas lega.\n\nKamu sadar bahwa mencintai diri sendiri terkadang berarti tidak membiarkan masa lalu merusak ketenangan masa kini.",
+        choices: [
+          { text: "Mainkan Ulang dari Awal", nextScene: "start" }
+        ]
+      },
+      endingSingapura: {
+        title: "Akhir Cerita: Petualangan Baru",
+        text: "Satu bulan kemudian, kamu berdiri di balkon apartemen baru kalian yang menghadap Marina Bay. Keputusan ini berisiko, namun kalian berdua telah belajar bahwa hubungan dewasa membutuhkan keberanian untuk melangkah bersama ke ketidakpastian.",
+        choices: [
+          { text: "Mainkan Ulang dari Awal", nextScene: "start" }
+        ]
+      },
+      endingPerpisahanDamai: {
+        title: "Akhir Cerita: Kedewasaan Sejati",
+        text: "Kalian berpelukan erat di pintu keluar. Tidak ada tangisan histeris, hanya penutupan sebuah bab kehidupan yang sempurna. Adrian pergi menuju bandara, dan kamu kembali ke dalam rumahmu dengan hati yang benar-benar lapang.",
+        choices: [
+          { text: "Mainkan Ulang dari Awal", nextScene: "start" }
+        ]
+      },
+      endingLDR: {
+        title: "Akhir Cerita: Kepercayaan Tanpa Batas",
+        text: "Adrian berangkat ke Singapura pagi itu. Hubungan kalian kini berlandaskan komunikasi yang sehat dan rasa percaya. Kalian bukan lagi dua anak muda yang rapuh, melainkan dua orang dewasa yang saling mendukung impian masing-masing.",
+        choices: [
+          { text: "Mainkan Ulang dari Awal", nextScene: "start" }
+        ]
+      },
+      endingBertahanDiJakarta: {
+        title: "Akhir Cerita: Rumah yang Sesungguhnya",
+        text: "Matahari pagi menyinari ruang tamu. Adrian melepaskan ambisi besarnya demi sesuatu yang lebih berharga: kamu. Kalian siap membangun fondasi hubungan yang baru, lebih bijaksana dan lebih kuat dari sebelumnya.",
+        choices: [
+          { text: "Mainkan Ulang dari Awal", nextScene: "start" }
+        ]
+      }
+    };
+
+    function renderScene(sceneId) {
+      const scene = storyData[sceneId];
+      if (!scene) return;
+
+      document.getElementById('chapter-title').innerText = scene.title;
+      document.getElementById('story-text').innerText = scene.text;
+
+      const choicesBox = document.getElementById('choices-box');
+      choicesBox.innerHTML = '';
+
+      scene.choices.forEach(choice => {
+        const btn = document.createElement('button');
+        btn.className = 'btn-choice';
+        btn.innerText = choice.text;
+        btn.onclick = () => renderScene(choice.nextScene);
+        choicesBox.appendChild(btn);
+      });
+
+      window.scrollTo(0, 0);
+    }
+
+    renderScene('start');
+  </script>
+</body>
+</html>
