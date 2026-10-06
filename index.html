@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-  <title>Malam di Balik Tirai Velvet - Novel Interaktif Dewasa</title>
+  <title>Lembayung Jiwa - Game Interaktif Cinta & Drama</title>
   <style>
     * {
       box-sizing: border-box;
@@ -13,78 +13,92 @@
 
     body {
       font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
-      background-color: #0b0709;
-      color: #eae1e3;
+      background-color: #0d0b0e;
+      color: #e6e1e5;
       display: flex;
       justify-content: center;
       align-items: center;
       min-height: 100vh;
-      padding: 12px;
+      padding: 10px;
     }
 
     .app-card {
       width: 100%;
       max-width: 420px;
-      background: #180f13;
-      border-radius: 18px;
-      padding: 22px 18px;
-      box-shadow: 0 10px 30px rgba(217, 56, 86, 0.15);
+      background: #18131a;
+      border-radius: 20px;
+      padding: 20px 16px;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.7);
       display: flex;
       flex-direction: column;
       justify-content: space-between;
-      min-height: 90vh;
-      border: 1px solid #361720;
+      min-height: 92vh;
+      border: 1px solid #2d2230;
     }
 
     .header {
-      border-bottom: 1px solid #3a1c25;
+      border-bottom: 1px solid #332438;
       padding-bottom: 12px;
       margin-bottom: 16px;
       display: flex;
       flex-direction: column;
-      gap: 6px;
+      gap: 8px;
     }
 
     .title {
-      font-size: 1rem;
+      font-size: 0.95rem;
       font-weight: 700;
-      color: #e58b9e;
+      color: #e0b0ff;
       letter-spacing: 0.5px;
       text-transform: uppercase;
     }
 
     .mood-badge {
       align-self: flex-start;
-      font-size: 0.78rem;
-      padding: 4px 10px;
-      border-radius: 12px;
+      font-size: 0.76rem;
+      padding: 5px 12px;
+      border-radius: 20px;
       font-weight: 600;
-      display: inline-block;
+      letter-spacing: 0.3px;
+      transition: all 0.3s ease;
     }
 
-    .mood-neutral {
-      background-color: #2a2025;
-      color: #d1c2a5;
-      border: 1px solid #4a3842;
+    /* Variasi Gelombang Emosi (Mood) */
+    .mood-tense {
+      background-color: #3b1c20;
+      color: #ff8585;
+      border: 1px solid #702e38;
     }
 
-    .mood-positive {
-      background-color: #3b111a;
-      color: #ff85a1;
-      border: 1px solid #701c30;
+    .mood-warm {
+      background-color: #311c38;
+      color: #e8a0ff;
+      border: 1px solid #632b73;
     }
 
-    .mood-negative {
-      background-color: #1a1721;
-      color: #a0a5b5;
-      border: 1px solid #383c4d;
+    .mood-love {
+      background-color: #381423;
+      color: #ff85b3;
+      border: 1px solid #802348;
+    }
+
+    .mood-dark {
+      background-color: #1a171c;
+      color: #a39ca8;
+      border: 1px solid #3d3542;
+    }
+
+    .mood-tragic {
+      background-color: #2b0d0d;
+      color: #ff4d4d;
+      border: 1px solid #801a1a;
     }
 
     .story-body {
       flex-grow: 1;
-      font-size: 0.98rem;
-      line-height: 1.75;
-      color: #dcd0d4;
+      font-size: 0.96rem;
+      line-height: 1.7;
+      color: #d6cbd8;
       white-space: pre-line;
       overflow-wrap: break-word;
       word-break: break-word;
@@ -94,16 +108,16 @@
     .choices-container {
       display: flex;
       flex-direction: column;
-      gap: 12px;
+      gap: 10px;
     }
 
     .btn-choice {
-      background-color: #24141a;
-      border: 1px solid #4d2330;
-      color: #f3e6e8;
-      padding: 14px 16px;
+      background-color: #241a29;
+      border: 1px solid #45304f;
+      color: #f1e6f5;
+      padding: 13px 15px;
       border-radius: 12px;
-      font-size: 0.92rem;
+      font-size: 0.9rem;
       font-weight: 500;
       text-align: left;
       cursor: pointer;
@@ -115,8 +129,8 @@
     }
 
     .btn-choice:active {
-      background-color: #5c182a;
-      border-color: #e58b9e;
+      background-color: #532d61;
+      border-color: #e0b0ff;
       color: #ffffff;
       transform: scale(0.98);
     }
@@ -126,8 +140,8 @@
 
   <div class="app-card">
     <div class="header">
-      <div class="title" id="chapter-title">Bab 1: Kepulangan di Tengah Malam</div>
-      <div id="mood-indicator" class="mood-badge mood-neutral">Status Reza: Menanti</div>
+      <div class="title" id="chapter-title">Bab 1: Retakan di Jam Tiga Pagi</div>
+      <div id="mood-indicator" class="mood-badge mood-tense">Emosi Farhan: Tegang & Lelah</div>
     </div>
     
     <div class="story-body" id="story-text">
@@ -141,126 +155,154 @@
 
   <script>
     const storyData = {
+      /* === BAB 1 === */
       start: {
-        title: "Bab 1: Kepulangan di Tengah Malam",
-        mood: "neutral",
-        moodText: "Status Reza: Menanti responmu",
-        text: "Hujan gerimis membasahi kaca penthouse tempat kalian tinggal bersama. Lampu kamar sengaja kamu redupkan, hanya menyisakan pendar hangat dari lampu tidur.\n\nPintu suite terbuka pelan. Reza—kekasihmu—melangkah masuk. Pria bertubuh jangkung dengan dada bidang itu melepas dasi dan dua kancing teratas kemejanya. Tatapan matanya tajam, sarat akan gairah dan kerinduan setelah tiga minggu bertugas di luar negeri.\n\nIa mendekatimu yang sedang bersandar di tepi tempat tidur berbalut lingerie sutra tipis. Nafasnya hangat saat menunduk menyapu ceruk lehermu.\n\n'Aku merindukanmu sampai rasanya mau gila,' bisiknya rendah dan serak, menyatukan jemarinya di pinggangmu.",
+        title: "Bab 1: Retakan di Jam Tiga Pagi",
+        moodClass: "mood-tense",
+        moodText: "Emosi Farhan: Tegang & Lelah",
+        text: "Jam dinding menunjukkan pukul 03.15 pagi. Bau hujan malam masih pekat menusuk balkon apartemen. Pintu depan baru saja menghentak pelan—Farhan melangkah masuk dengan kemeja kusut dan lingkaran hitam melingkari matanya.\n\nKamu sudah menunggunya di sofa sejak semalam. Pikiran buruk, rasa cemburu, dan kecurigaan telah menggerogoti dadamu selama lima jam tanpa kabar.\n\n'Kamu baru pulang jam segini?' suaramu gemetar menahan amarah.\n\nFarhan menghela napas berat, melepas jam tangannya dan melemparnya ke meja. 'Tolong, Maya... aku baru selesai meeting darurat. Aku benar-benar lelah, jangan mulai bertengkar sekarang.'",
         choices: [
-          { text: "Rengkuh lehernya, tarik dia mendekat dan bisikkan godaan mesra", nextScene: "sambutMesra" },
-          { text: "Dorong dadanya pelan lalu minta dia mandi dulu karena badannya terasa dingin", nextScene: "tolakDingin" }
+          { text: "Genggam tangannya yang dingin, turunkan egomu dan tanyakan kondisinya", nextScene: "ch1_sabar" },
+          { text: "Ledakkan amarahmu, tuduh dia menyembunyikan sesuatu darimu", nextScene: "ch1_emosi" }
         ]
       },
 
-      /* --- ALUR POSITIF 1 --- */
-      sambutMesra: {
-        title: "Bab 2: Bisikan Gairah",
-        mood: "positive",
-        moodText: "Status Reza: Sangat Berhasrat & Bahagia",
-        text: "Mata Reza menggelap seketika, berbinar penuh kepuasan. Bisikan gairahmu membakar habis sisa kelelahan dari perjalanan jauhnya.\n\nTanpa membuang waktu, tangan kekarnya merengkuh pinggangmu lebih erat, menarik tubuhmu rapat menempel pada dadanya yang keras. Bibirnya menyapu bibirmu dengan ciuman yang dalam, penuh penekanan dan rasa lapar yang tak tertahankan.\n\nJemarinya perlahan menyusup ke balik sutra tipis di punggungmu, mengirimkan sengatan panas ke seluruh sarafmu.\n\n'Kamu tahu persis cara membuatku bertekuk lutut, sayang,' bisiknya di antara hembusan nafasnya yang memburu.",
+      /* === BAB 2 (ALUR REDAK) === */
+      ch1_sabar: {
+        title: "Bab 2: Bisikan Kerentanan",
+        moodClass: "mood-warm",
+        moodText: "Emosi Farhan: Pelan-pelan Luluh",
+        text: "Kamu menahan napas, meredam emosimu yang hampir meledak. Kamu melangkah mendekat dan memegang tangannya yang terasa dingin.\n\nMatanya yang tajam perlahan meredup. Bahunya yang tegang jatuh. Farhan menunduk, lalu menyandarkan dahi hangatnya di bahumu. Napasnya terengah halus.\n\n'Aku hampir gila hari ini, Maya... proyek kantor kacau, dan ketakutan terbesarku adalah kehilangan kamu jika aku gagal,' bisiknya dengan suara serak yang hampir memecah keheningan.",
         choices: [
-          { text: "Lilitkan kakimu di pinggangnya dan biarkan dia membawamu ke atas tempat tidur", nextScene: "puncakGairah" },
-          { text: "Hentikan ciumannya sebentar dan tanyakan apakah dia membawakan hadiah untukmu", nextScene: "gangguMomen" }
+          { text: "Peluk tubuhnya erat dan katakan kamu percaya padanya", nextScene: "ch2_jujur" },
+          { text: "Tetap minta dia jujur tentang pesan asing di ponselnya minggu lalu", nextScene: "ch2_ragu" }
         ]
       },
 
-      /* --- ALUR NEGATIF 1 --- */
-      tolakDingin: {
-        title: "Bab 2: Pembekuan Suasana",
-        mood: "negative",
-        moodText: "Status Reza: Kecewa & Terluka",
-        text: "Reza terdiam kaku. Gerakan tangannya di pinggangmu terhenti seketika.\n\nIa menarik tubuhnya mundur setengah langkah. Matanya yang tadinya membara penuh rasa rindu kini meredup, menyisakan tatapan dingin dan kekecewaan yang dalam. Keheningan yang canggung memenuhi kamar tidur.\n\nIa menghela napas panjang, lalu tersenyum tipis yang terasa pahit. 'Maaf. Aku lupa kalau kamu tidak suka diganggu saat baru pulang,' katanya singkat dengan suara datar. Ia berbalik mengambil handuk dan melangkah menuju kamar mandi tanpa menatapmu lagi.",
+      /* === BAB 2 (ALUR LEDAKAN) === */
+      ch1_emosi: {
+        title: "Bab 2: Ledakan di Tengah Malam",
+        moodClass: "mood-tragic",
+        moodText: "Emosi Farhan: Marah & Terluka",
+        text: "'Meeting jam 3 pagi?! Kamu pikir aku bodoh, Farhan?' kamu berteriak sambil mendorong dadanya.\n\nFarhan terperanjat. Tatapan matanya berubah menjadi dingin dan menusuk. 'Cukup, Maya! Aku bekerja mati-matian untuk masa depan kita, dan setiap hari aku pulang hanya untuk diinterogasi seperti penjahat!'\n\nIa menyapu vas bunga di atas meja hingga pecah berantakan di lantai. Suara pecahan kaca menggelegar menyayat malam.",
         choices: [
-          { text: "Susul dia ke kamar mandi, peluk dari belakang dan minta maaf dengan manja", nextScene: "mintaMaafGoda" },
-          { text: "Biarkan saja dia pergi, lalu merebahkan diri dan mainkan ponselmu", nextScene: "cuekMendalam" }
+          { text: "Sadar akan kekacauan ini, menangis dan Minta Maaf atas emosimu", nextScene: "ch2_jujur" },
+          { text: "Berteriak menyuruhnya pergi meninggalkan apartemen detik ini juga", nextScene: "ch2_usir" }
         ]
       },
 
-      /* --- ALUR POSITIF 2 (PUNCAK) --- */
-      puncakGairah: {
-        title: "Bab 3: Gelombang Hangat",
-        mood: "positive",
-        moodText: "Status Reza: Makin Sayang & Penuh Cinta",
-        text: "Dinding kamar menjadi saksi bisu betapa membara malam kalian. Sentuhan demi sentuhan, bisikan lembut yang berganti menjadi desahan tertahan, menyatu dalam irama gairah yang dewasa dan intens.\n\nReza menatap langsung ke dalam matamu saat memanjakanmu, memastikan setiap sentuhannya membawamu ke puncak kenikmatan. Keringat tipis melapisi kulit kalian berdua.\n\nSaat semua gelombang gairah reda, Reza memelukmu erat dalam dekapan dadanya, mengelus rambutmu lembut dan mengecup keningmu berulang kali.\n\n'Aku tidak pernah menginginkan wanita lain seumur hidupku selain kamu,' bisiknya tulus.",
+      /* === BAB 3 (KEJUJURAN & KEHANGATAN) === */
+      ch2_jujur: {
+        title: "Bab 3: Saling Merengkuh Luka",
+        moodClass: "mood-warm",
+        moodText: "Emosi Farhan: Merasa Diterima & Hangat",
+        text: "Kalian berdua duduk di lantai bersandarkan sofa. Pertengkaran perlahan mencair menjadi kejujuran yang telanjang.\n\nFarhan menggenggam jemarimu erat, mengecup punggung tanganmu berulang kali. 'Maafkan aku yang terlalu tertutup... Aku cuma takut membuatmu cemas dengan masalahku.'\n\nKamu meresapi setiap detak jantungnya. Rasa cemburu yang tadinya membakar kini tergantikan oleh rasa sayang yang begitu dalam dan protektif.",
         choices: [
-          { text: "Bisikkan bahwa kamu ingin menghabiskan sisa hidupmu bersamanya", nextScene: "happyEnding" },
-          { text: "Tertawa pelan lalu menyuruhnya tidur karena esok hari sudah pagi", nextScene: "endingBiasa" }
+          { text: "Ajak dia masuk ke kamar tidur untuk beristirahat bersama", nextScene: "ch3_peluk" },
+          { text: "Kembali ragu dan pertanyakan apakah dia benar-benar tulus", nextScene: "ch2_ragu" }
         ]
       },
 
-      /* --- ALUR NEGATIF KE POSITIF (RECOVERY) --- */
-      mintaMaafGoda: {
-        title: "Bab 3: Pencairan Es",
-        mood: "positive",
-        moodText: "Status Reza: Luluh & Terbakar Kembali",
-        text: "Kamu melangkah masuk ke dalam kamar mandi di bawah gemericik shower hangat. Kamu memeluk tubuh Reza dari belakang, menyandarkan pipimu pada punggungnya yang basah.\n\n'Maafkan aku... aku cuma ingin kamu segar dulu, tapi aku salah,' bisikmu lembut sambil menggerakkan jemarimu di dadanya.\n\nTubuh Reza yang tadinya tegang perlahan rileks. Ia memutar tubuhnya, menatap matamu yang penuh penyesalan. Senyum hangatnya kembali terpancar.\n\n'Jangan pernah menolakku seperti itu lagi,' bisiknya serak sebelum mengangkat tubuhmu di bawah guyuran air hangat.",
+      /* === BAB 3 (KECURIGAAN BERULANG) === */
+      ch2_ragu: {
+        title: "Bab 3: Benih Racun Kecurigaan",
+        moodClass: "mood-tense",
+        moodText: "Emosi Farhan: Kecewa & Lelah Emosi",
+        text: "Farhan menarik tangannya perlahan dari genggamanmu. Ia menatapmu dengan rasa tak percaya.\n\n'Jadi setelah semua yang kujelaskan... kamu masih tidak percaya padaku, Maya?' suaranya bergetar menahan kekecewaan yang sangat dalam.\n\nIa berdiri, berjalan menjauhi sofa. Jarak di antara kalian terasa membeku kembali, lebih dingin dari udara malam di luar.",
         choices: [
-          { text: "Pasrahkan dirimu dalam buaian mesranya", nextScene: "puncakGairah" }
+          { text: "Hampiri dia, peluk punggungnya dari belakang dan mohon ampun", nextScene: "ch3_peluk" },
+          { text: "Biarkan dia dingin dan tuduh dia melarikan diri dari kenyataan", nextScene: "ch3_tuduh" }
         ]
       },
 
-      /* --- ALUR GANGGU MOMEN (SENSITIF) --- */
-      gangguMomen: {
-        title: "Bab 3: Kehilangan Selera",
-        mood: "negative",
-        moodText: "Status Reza: Marah & Tersinggung",
-        text: "Reza mendadak melepaskan cengkeramannya dari bahumu. Tatapannya berubah tajam dan tersinggung.\n\n'Jadi yang ada di pikiranmu saat aku merindukanmu setengah mati cuma oleh-oleh?' suaranya memotong keheningan malam.\n\nIa melangkah menjauh menuju meja kerja, melempar dompet dan jam tangannya kasar. 'Aku terbang belasan jam bukan untuk dijadikan mesin hadiah,.'",
+      /* === BAB 3 (PENGUSIRAN / KEHANCURAN) === */
+      ch2_usir: {
+        title: "Bab 3: Pergi Menerobos Hujan",
+        moodClass: "mood-dark",
+        moodText: "Emosi Farhan: Hancur & Keputusasaan",
+        text: "Farhan menatap pecahan kaca di lantai, lalu menatapmu yang diselimuti kemarahan. Tanpa mengucapkan sepatah kata pun, ia mengambil jaketnya dan melangkah keluar pintu.\n\nPintu tertutup keras. Kamu mendengar langkah kakinya menghilang di lorong. Di luar, hujan deras mengguyur kota tanpa ampun.",
         choices: [
-          { text: "Berdiri, hampiri dia dan berikan ciuman panas tanpa banyak bicara", nextScene: "mintaMaafGoda" },
-          { text: "Bela diri dan balik memarahinya karena terlalu sensitif", nextScene: "bertengkarHebat" }
+          { text: "Lari mengejarnya turun tangga menuju hujan deras", nextScene: "ch3_pergi" },
+          { text: "Kunci pintu, masuk kamar, dan biarkan pikiran gelap menguasaimu", nextScene: "ch4_histeris" }
         ]
       },
 
-      /* --- ALUR CUEK (SANGAT NEGATIF) --- */
-      cuekMendalam: {
-        title: "Bab 3: Keheningan Pahit",
-        mood: "negative",
-        moodText: "Status Reza: Diam & Dingin",
-        text: "Setengah jam berlalu. Reza keluar dari kamar mandi dengan pakaian santai. Ia tidak mengucapkan sepatah kata pun.\n\nIa berjalan ke sisi tempat tidur yang lain, memunggungi tubuhmu, lalu mematikan lampu kamar total. Tidak ada pelukan hangat, tidak ada kecupan selamat malam seperti biasanya.\n\nHanya ada jarak tak kasat mata yang lebar dan dingin di antara kalian berdua.",
+      /* === BAB 4 (MOMEN INTIM & PERDAMAIAN) === */
+      ch3_peluk: {
+        title: "Bab 4: Di Bawah Pendar Selimut",
+        moodClass: "mood-love",
+        moodText: "Emosi Farhan: Sangat Mencintai & Pasrah",
+        text: "Lampu kamar sengaja diredupkan. Suara gemericik sisa hujan di luar menjadi melodi latar yang menenangkan.\n\nFarhan merebahkan tubuhnya di sampingmu. Ia menarik tubuhmu rapat ke dalam pelukannya, menyembunyikan wajahnya di ceruk lehermu. Hembusan napas hangatnya menyapu kulitmu.\n\n'Jangan pernah biarkan kita saling menyakiti lagi, Maya... aku tidak bisa hidup tanpa kamu,' bisiknya lembut penuh penyerahan cinta.",
         choices: [
-          { text: "Geser tubuhmu mendekatinya, memeluk punggungnya erat dari belakang", nextScene: "mintaMaafGoda" },
-          { text: "Tetap membelakanginya dan memilih tidur dengan perasaan kesal", nextScene: "badEnding" }
+          { text: "Rebahkan dirimu sepenuhnya, saling mengunci dalam pelukan dan tidur bersama", nextScene: "ending_happy" },
+          { text: "Tiba-tiba melepaskan pelukannya karena kenangan pahit masa lalu mendadak muncul", nextScene: "ch3_tuduh" }
         ]
       },
 
-      /* --- ENDINGS --- */
-      happyEnding: {
-        title: "Akhir Cerita: Jiwa yang Menyatu",
-        mood: "positive",
-        moodText: "Status Reza: Sangat Mencintaimu Selamanya",
-        text: "Reza tersenyum tampan, menatapmu dengan binar mata paling hangat yang pernah kamu lihat. Ia mengecup bibirmu lembut.\n\nMalam ini bukan hanya tentang kehangatan fisik yang membara, tetapi tentang dua hati dewasa yang saling mengerti, saling memuaskan, dan saling mengikat janji cinta tanpa ragu.",
+      /* === BAB 4 (PUNCAK KONFRONTASI) === */
+      ch3_tuduh: {
+        title: "Bab 4: Ambang Keretakan Total",
+        moodClass: "mood-tragic",
+        moodText: "Emosi Farhan: Puncak Kemarahan & Putus Asa",
+        text: "'Aku lelah, Maya! Aku benar-benar lelah!' suara Farhan menggema di seluruh ruangan. Matanya memerah basah oleh air mata frustrasi.\n\n'Apapun yang kukerjakan selalu salah di matamu! Jika kamu memang ingin aku menghilang dari hidupmu, katakan sekarang!'\n\nAtmosfer di dalam ruangan begitu sesak, seolah udara telah habis tersedot oleh emosi negatif kalian berdua.",
         choices: [
-          { text: "Mainkan Ulang Novel", nextScene: "start" }
+          { text: "Menangis histeris, menyalahkan dirimu sendiri dan mengancam menyakiti diri", nextScene: "ch4_histeris" },
+          { text: "Terdiam, sadar dan langsung memeluk kakinya sambil memohon maaf", nextScene: "ch4_bicara" }
         ]
       },
 
-      endingBiasa: {
-        title: "Akhir Cerita: Malam yang Hangat",
-        mood: "neutral",
-        moodText: "Status Reza: Puas & Nyaman",
-        text: "Reza terkekeih pelan, lalu menarik selimut menutupi tubuh kalian berdua. Ia memelukmu erat dari samping, membiarkan detak jantungnya menjadi nada pengantar tidurmu malam ini.",
+      /* === BAB 4 (PENGEJARAN DI HUJAN) === */
+      ch3_pergi: {
+        title: "Bab 4: Tangisan di Bawah Hujan",
+        moodClass: "mood-tragic",
+        moodText: "Emosi Farhan: Terpukul & Basah Kuyup",
+        text: "Kamu berlari keluar apartemen tanpa alas kaki. Di halaman bawah, kamu melihat Farhan berdiri mematung di bawah guyuran hujan deras, air mata menyatu dengan bulir hujan di pipinya.\n\nKamu berlari dan memeluk punggungnya dari belakang. Tubuhnya gemetar kedinginan dan terguncang oleh histeria tangis.\n\n'Jangan pergi... tolong jangan tinggalkan aku, Farhan!' jeritmu di antara deru hujan.",
         choices: [
-          { text: "Mainkan Ulang Novel", nextScene: "start" }
+          { text: "Ajak dia kembali ke atas, keringkan tubuhnya dan saling memaafkan", nextScene: "ch4_bicara" },
+          { text: "Lepaskan pelukanmu dan biarkan dia pergi membawa penyesalan", nextScene: "ch4_histeris" }
         ]
       },
 
-      bertengkarHebat: {
-        title: "Akhir Cerita: Luka Ego",
-        mood: "negative",
-        moodText: "Status Reza: Marah Besar",
-        text: "Pertengkaran meledak di tengah malam. Ego dan emosi membuat malam yang seharusnya penuh kehangatan berubah menjadi medan pertempuran ucapan pedas.\n\nReza mengambil kunci mobilnya dan keluar dari penthouse, membiarkanmu sendirian dalam penyesalan.",
+      /* === BAB 5 (PEMULIHAN JIWA) === */
+      ch4_bicara: {
+        title: "Bab 5: Pemulihan Luka Hati",
+        moodClass: "mood-warm",
+        moodText: "Emosi Farhan: Harapan & Penyesalan Dalam",
+        text: "Kalian kembali ke dalam rumah dengan tubuh basah dan hati yang remuk, namun keputusasaan berganti menjadi kesadaran betapa dalam kalian saling membutuhkan.\n\nFarhan mengeringkan rambutmu dengan handuk, menatap matamu yang sembab dengan rasa cinta dan penyesalan yang tak terhingga.\n\n'Kita hampir menghancurkan diri kita sendiri malam ini... Mari kita perbaiki semuanya dari awal, Maya.'",
         choices: [
-          { text: "Coba Lagi dari Awal", nextScene: "start" }
+          { text: "Genggam tangannya, rebahkan tubuh bersama di kasur hangat", nextScene: "ending_happy" }
         ]
       },
 
-      badEnding: {
-        title: "Akhir Cerita: Hubungan yang Hambar",
-        mood: "negative",
-        moodText: "Status Reza: Tembok Pertahanan Keras",
-        text: "Keheningan malam itu membeku hingga pagi datang. Respon dinginmu yang berulang membuat gairah dan rasa cinta Reza perlahan terkikis, menyisakan hubungan yang hambar dan penuh jarak.",
+      /* === BAB 5 (JALUR KEGELAPAN / HISTERIA) === */
+      ch4_histeris: {
+        title: "Bab 5: Dalam Gelap Keputusasaan",
+        moodClass: "mood-dark",
+        moodText: "Emosi: Kehancuran Jiwa & Paranoia",
+        text: "Pikiranmu hancur total. Suara-suara negatif di kepalamu berbisik bahwa kamu adalah beban, bahwa kamu telah menghancurkan satu-satunya orang yang kamu cintai, dan tidak ada lagi jalan keluar dari penderitaan ini.\n\nRuangan terasa makin gelap, dingin, dan hampa. Kamu mengunci pintu kamar mandi dari dalam, menggenggam benda tajam dengan jemari gemetar hebat, membiarkan depresi mematikan selaras dengan detak jantungmu yang makin melambat.",
         choices: [
-          { text: "Coba Lagi dari Awal", nextScene: "start" }
+          { text: "Menyerah pada kegelapan dan mengakhiri semua rasa sakit ini...", nextScene: "ending_bad" }
+        ]
+      },
+
+      /* === ENDINGS === */
+      ending_happy: {
+        title: "Akhir Cerita: Dalam Pelukan Hangat (Happy Ending)",
+        moodClass: "mood-love",
+        moodText: "Status: Tidur Bersama Dalam Kedamaian Cinta",
+        text: "Di atas tempat tidur yang hangat, seluruh badai emosi malam ini akhirnya mereda.\n\nKamu berbaring di atas dada bidang Farhan, mendengarkan detak jantungnya yang teratur. Tangan kekarnya mengelus punggung dan rambutmu dengan kelembutan yang menyembuhkan setiap retakan luka.\n\n'Selamat tidur, cintaku... esok adalah hari yang baru untuk kita,' bisik Farhan lembut di keningmu.\n\nKalian berdua perlahan terlelap dalam tidur yang lelap, saling mengunci dalam pelukan hangat hingga fajar menyingsing.",
+        choices: [
+          { text: "Mainkan Ulang Cerita", nextScene: "start" }
+        ]
+      },
+
+      ending_bad: {
+        title: "Akhir Cerita: Tragedi Keputusasaan (Bad Ending)",
+        moodClass: "mood-tragic",
+        moodText: "Status: Akhir Tragis & Penyesalan Abadi",
+        text: "Keesokan harinya, pintu kamar mandi didobrak paksa.\n\nFarhan terduduk histeris di lantai yang dingin, menjerit histeris sambil memeluk tubuhmu yang sudah kaku dan pucat tak bernyawa. Penyesalan mendalam menyiksa jiwanya seumur hidup.\n\nSebuah keputusan impulsif di tengah badai emosi telah memadamkan takdir cinta kalian selamanya dalam tragedi keputusasaan yang tak terobati.",
+        choices: [
+          { text: "Mainkan Ulang Cerita", nextScene: "start" }
         ]
       }
     };
@@ -275,10 +317,7 @@
       // Update Indikator Emosi
       const moodIndicator = document.getElementById('mood-indicator');
       moodIndicator.innerText = scene.moodText;
-      moodIndicator.className = 'mood-badge ' + (
-        scene.mood === 'positive' ? 'mood-positive' :
-        scene.mood === 'negative' ? 'mood-negative' : 'mood-neutral'
-      );
+      moodIndicator.className = 'mood-badge ' + scene.moodClass;
 
       // Render Pilihan
       const choicesBox = document.getElementById('choices-box');
